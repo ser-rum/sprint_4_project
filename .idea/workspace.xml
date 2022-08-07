@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="629da084-f760-4fa6-81df-1f96fde9ebfb" name="Changes" comment="Created the basis of the project">
+    <list default="true" id="629da084-f760-4fa6-81df-1f96fde9ebfb" name="Changes" comment="Added final version of the project">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ru/yandex/uitesting/ImportantQuestionsTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/ru/yandex/uitesting/PageObject/FirstOrderPage.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/ru/yandex/uitesting/PageObject/MainPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ru/yandex/uitesting/PageObject/OrderConfirmationPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ru/yandex/uitesting/PageObject/PlacedOrderPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ru/yandex/uitesting/PageObject/SecondOrderPage.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/ru/yandex/uitesting/ScooterOrderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
@@ -179,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659561363233</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added final version of the project">
+      <created>1659883315976</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1659883315976</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -196,6 +208,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
     <MESSAGE value="Created the basis of the project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created the basis of the project" />
+    <MESSAGE value="Added final version of the project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added final version of the project" />
   </component>
 </project>
