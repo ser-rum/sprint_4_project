@@ -1,11 +1,18 @@
 package ru.yandex.uitesting;
 
+import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;     //Закомментировать для проверки на Firefox
+//import org.openqa.selenium.firefox.FirefoxDriver; //Раскомментировать для проверки на Firefox
 import ru.yandex.uitesting.PageObject.*;
 
 
 public class ScooterOrderTest extends BaseTest {
 
+    private WebDriver driver;
+
+    String mainPageURL = "https://qa-scooter.praktikum-services.ru/";
     String userFirstName = "Евгений";
     String userLastName = "Метила";
     String userAddress = "ул. Ленина";
@@ -21,26 +28,36 @@ public class ScooterOrderTest extends BaseTest {
     @Test
     public void testOrderScooterByTopButton() {
 
-        MainPage mainPage = new MainPage();
+//        driver = new FirefoxDriver();     //Раскомментировать для проверки на Firefox
+        driver = new ChromeDriver();        //Закомментировать для проверки на Firefox
+        driver.get(mainPageURL);
+        MainPage mainPage = new MainPage(driver);
+        mainPage.clickCookieButton();
         FirstOrderPage firstOrderPage = mainPage.clickTopOrderButton();
         SecondOrderPage secondOrderPage = firstOrderPage.feelFirstOrderPage(userFirstName, userLastName,
                 userAddress, userPhoneNumber);
         OrderConfirmationPage orderConfirmationPage = secondOrderPage.feelSecondOrderPage(userDeliveryDay);
         PlacedOrderPage placedOrderPage = orderConfirmationPage.clickConfirmationButton();
-        placedOrderPage.shouldBePlacedOrderText(placedOrderMessage);
+        Assert.assertTrue(placedOrderPage.shouldBePlacedOrderText().contains(placedOrderMessage));
+        driver.quit();
 
     }
 
     @Test
     public void testOrderScooterByBottomButton(){
 
-        MainPage mainPage = new MainPage();
+//        driver = new FirefoxDriver();     //Раскомментировать для проверки на Firefox
+        driver = new ChromeDriver();        //Закомментировать для проверки на Firefox
+        driver.get(mainPageURL);
+        MainPage mainPage = new MainPage(driver);
+        mainPage.clickCookieButton();
         FirstOrderPage firstOrderPage = mainPage.clickBottomOrderButton();
         SecondOrderPage secondOrderPage = firstOrderPage.feelFirstOrderPage(userFirstName, userLastName,
                 userAddress, userPhoneNumber);
         OrderConfirmationPage orderConfirmationPage = secondOrderPage.feelSecondOrderPage(userDeliveryDay);
         PlacedOrderPage placedOrderPage = orderConfirmationPage.clickConfirmationButton();
-        placedOrderPage.shouldBePlacedOrderText(placedOrderMessage);
+        Assert.assertTrue(placedOrderPage.shouldBePlacedOrderText().contains(placedOrderMessage));
+        driver.quit();
 
     }
 }

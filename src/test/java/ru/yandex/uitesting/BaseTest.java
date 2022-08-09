@@ -1,27 +1,33 @@
 package ru.yandex.uitesting;
 
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;         //Закомментировать для проверки на Firefox
+//import org.openqa.selenium.firefox.FirefoxDriver;     //Раскомментировать для проверки на Firefox
 
-import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.*;
+import java.time.Duration;
 
 public class BaseTest {
 
+    WebDriver driver;
+
     @Before
     public void setup(){
-//        System.setProperty("selenide.browser", "firefox");   //Строчка для проверки прохождения тестов на Firefox
-        SelenideElement cookieAcceptButton = $(byId("rcc-confirm-button"));
-        open("https://qa-scooter.praktikum-services.ru/");
-        cookieAcceptButton.click();
+
+//        WebDriverManager.firefoxdriver().setup();     //Раскомментировать для проверки на Firefox
+//        driver = new FirefoxDriver();                 //Раскомментировать для проверки на Firefox
+        WebDriverManager.chromedriver().setup();        //Закомментировать для проверки на Firefox
+        driver = new ChromeDriver();                    //Закомментировать для проверки на Firefox
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
     }
 
     @After
-    public void teardown(){
-        Selenide.clearBrowserCookies();
-        Selenide.closeWindow();
+    public void tearDown(){
+
+        driver.quit();
+
     }
 }
